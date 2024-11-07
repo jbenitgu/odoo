@@ -1,0 +1,35 @@
+trigger:
+  - 18.0
+
+pool:
+  name: 'SonarQube-Alicorp'
+
+steps:
+- script: echo "Hello, world!"
+  displayName: 'Run Test'
+
+# Check connectivity to SonarQube
+- script: |
+    curl --fail --silent --show-error http://10.76.208.11:9000/api/server/version
+  displayName: 'Check SonarQube Server Connectivity'
+  condition: succeeded()
+
+# Prepare SonarQube analysis configuration
+- task: SonarQubePrepare@7
+  inputs:
+    extraProperties: |
+      sonar.verbose=true
+      sonar.python.version=3
+    SonarQube: 'Sonar Alicorp'
+    scannerMode: 'cli'
+    configMode: 'manual'
+    cliProjectKey: 'python-project-key'
+    cliProjectName: 'python-code'
+    cliSources: '.'
+    timeoutInMinutes: 1  # Increased timeout for SonarQubePrepare
+
+- task: SonarQubeAnalyze@7
+
+- task: SonarQubePublish@7
+  inputs:
+    pollingTimeoutSec: '300'
