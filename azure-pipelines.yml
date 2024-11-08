@@ -5,8 +5,9 @@ pool:
   name: 'SonarQube-Alicorp'
 
 steps:
-- script: echo "Hello, world!"
-  displayName: 'Run Test'
+- script: |
+    echo "Working directory: $(Build.SourcesDirectory)"
+  displayName: 'Working Directory'
 
 # Check connectivity to SonarQube
 - script: |
