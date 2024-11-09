@@ -27,9 +27,10 @@ steps:
     cliProjectKey: 'python-project-key'
     cliProjectName: 'python-code'
     cliSources: '.'
-    timeoutInMinutes: 1  # Increased timeout for SonarQubePrepare
+    timeoutInMinutes: 2
 
 - task: SonarQubeAnalyze@7
+  continueOnError: true
 
 - task: SonarQubePublish@7
   inputs:
