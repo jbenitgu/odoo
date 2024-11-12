@@ -19,16 +19,16 @@ steps:
 - task: SonarQubePrepare@7
   inputs:
     extraProperties: |
-      sonar.verbose=true
+      sonar.verbose=false
       sonar.python.version=3
-      sonar.exclusions=addons/web_editor/static/src/js/**/*.js
+      sonar.exclusions=addons/web/static/src/core/emoji_picker/emoji_data.js,addons/web_editor/static/src/js/**/*.js
     SonarQube: 'Sonar Alicorp'
     scannerMode: 'cli'
     configMode: 'manual'
     cliProjectKey: 'python-project-key'
     cliProjectName: 'python-code'
     cliSources: '.'
-    timeoutInMinutes: 2
+    timeoutInMinutes: 5
 
 - task: SonarQubeAnalyze@7
   continueOnError: true
