@@ -21,6 +21,7 @@ steps:
     extraProperties: |
       sonar.verbose=true
       sonar.python.version=3
+      sonar.exclusions=addons/web_editor/static/src/js/**/*.js
     SonarQube: 'Sonar Alicorp'
     scannerMode: 'cli'
     configMode: 'manual'
