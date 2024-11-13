@@ -21,7 +21,9 @@ steps:
     extraProperties: |
       sonar.verbose=false
       sonar.python.version=3
-      sonar.exclusions=addons/web/static/src/core/emoji_picker/emoji_data.js,addons/web_editor/static/src/js/**/*.js
+      sonar.javascript.node.maxspace=4096
+      sonar.ws.timeout=1200
+      sonar.exclusions=addons/web/static/src/core/emoji_picker/**
     SonarQube: 'Sonar Alicorp'
     scannerMode: 'cli'
     configMode: 'manual'
