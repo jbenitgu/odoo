@@ -23,7 +23,7 @@ steps:
       sonar.python.version=3
       sonar.javascript.node.maxspace=4096
       sonar.ws.timeout=1200
-      sonar.exclusions=addons/web/static/src/core/emoji_picker/**,addons/web_editor/static/src/js/editor/snippets.editor.js
+      sonar.exclusions=addons/web/static/src/core/emoji_picker/**,addons/web_editor/static/src/js/editor/snippets.editor.js,addons/web/static/lib/luxon/luxon.js, addons/mail/static/lib/lame/lame.js
     SonarQube: 'Sonar Alicorp'
     scannerMode: 'cli'
     configMode: 'manual'
