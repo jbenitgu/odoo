@@ -30,7 +30,7 @@ steps:
     cliProjectKey: 'python-project-key'
     cliProjectName: 'python-code'
     cliSources: '.'
-    timeoutInMinutes: 2
+    timeoutInMinutes: 60
 
 - task: SonarQubeAnalyze@7
   continueOnError: true
